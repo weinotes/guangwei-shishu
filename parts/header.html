@@ -1,0 +1,41 @@
+<!-- wp:group {"tagName":"header","className":"shishu-header","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|30"}},"border":{"bottom":{"color":"var:wp--preset--color--border","width":"1px"}}},"layout":{"type":"constrained"}} -->
+<header class="wp-block-group shishu-header" style="border-bottom-color:var(--wp--preset--color--border);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30)">
+	
+	<!-- 第一行：Logo + 标题 + 副标题（居中垂直排列） -->
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical","justifyContent":"center"}} -->
+	<div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--40)">
+		
+		<!-- 网站 Logo -->
+		<!-- wp:site-logo {"width":160,"className":"shishu-site-logo","style":{"border":{"radius":"0px"}}} /-->
+		
+		<!-- 网站标题 -->
+		<!-- wp:site-title {"textAlign":"center","style":{"typography":{"fontFamily":"var:wp--preset--font-family--calligraphy","fontSize":"2.5rem","lineHeight":"1.4"},"color":{"text":"var:wp--preset--color--accent-red"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"0"}}}} /-->
+		
+		<!-- 网站副标题/描述 -->
+		<!-- wp:site-tagline {"textAlign":"center","style":{"typography":{"fontFamily":"var:wp--preset--font-family--serif","fontSize":"1rem","letterSpacing":"0.2em"},"color":{"text":"var:wp--preset--color--gray"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} /-->
+		
+	</div>
+	<!-- /wp:group -->
+	
+	<!-- 第二行：导航菜单 + 搜索图标（水平排列，带分隔符） -->
+	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"0"},"border":{"top":{"color":"var:wp--preset--color--border-light","width":"1px"}}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","alignItems":"center"}} -->
+	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--20);padding-bottom:0;border-top-color:var(--wp--preset--color--border-light);border-top-width:1px">
+		
+		<!-- 导航菜单 - 移动端始终显示汉堡菜单 -->
+		<!-- wp:navigation {"ref":1,"className":"shishu-nav shishu-nav-large","style":{"typography":{"fontFamily":"var:wp--preset--font-family--serif","fontSize":"1.25rem"}},"layout":{"type":"flex","justifyContent":"center"},"overlayMenu":"mobile"} /-->
+		
+		<!-- 分隔符 - 桌面端显示 -->
+		<!-- wp:paragraph {"className":"shishu-nav-separator","style":{"color":{"text":"var:wp--preset--color--border"},"typography":{"fontSize":"1.25rem"},"spacing":{"margin":{"left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}}} -->
+		<p class="shishu-nav-separator has-text-color" style="color:var(--wp--preset--color--border);font-size:1.25rem;margin-left:var(--wp--preset--spacing--30);margin-right:var(--wp--preset--spacing--30)">|</p>
+		<!-- /wp:paragraph -->
+		
+		<!-- 搜索图标链接 - 桌面端显示 -->
+		<!-- wp:paragraph {"className":"shishu-search-icon-link","style":{"typography":{"fontSize":"1.25rem"}}} -->
+		<p class="shishu-search-icon-link" style="font-size:1.25rem"><a href="/search" title="搜索">🔍</a></p>
+		<!-- /wp:paragraph -->
+		
+	</div>
+	<!-- /wp:group -->
+	
+</header>
+<!-- /wp:group -->

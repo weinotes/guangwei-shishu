@@ -1,0 +1,218 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"palette": [
+				{
+					"color": "#f7f3e9",
+					"name": "宣纸白",
+					"slug": "base"
+				},
+				{
+					"color": "#2c2c2c",
+					"name": "墨黑",
+					"slug": "contrast"
+				},
+				{
+					"color": "#c93756",
+					"name": "朱砂红",
+					"slug": "accent-red"
+				},
+				{
+					"color": "#3d5a80",
+					"name": "靛蓝",
+					"slug": "accent-green"
+				},
+				{
+					"color": "#d4a574",
+					"name": "藤黄",
+					"slug": "accent-yellow"
+				},
+				{
+					"color": "#8c8c8c",
+					"name": "水墨灰",
+					"slug": "gray"
+				},
+				{
+					"color": "#d4c8b8",
+					"name": "淡褐",
+					"slug": "border"
+				},
+				{
+					"color": "#ffffff",
+					"name": "纯白",
+					"slug": "white"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "720px",
+			"wideSize": "1200px"
+		},
+		"spacing": {
+			"defaultSpacingSizes": false,
+			"spacingSizes": [
+				{
+					"name": "极小",
+					"size": "8px",
+					"slug": "20"
+				},
+				{
+					"name": "小",
+					"size": "16px",
+					"slug": "30"
+				},
+				{
+					"name": "中",
+					"size": "24px",
+					"slug": "40"
+				},
+				{
+					"name": "常规",
+					"size": "clamp(24px, 4vw, 40px)",
+					"slug": "50"
+				},
+				{
+					"name": "大",
+					"size": "clamp(32px, 5vw, 56px)",
+					"slug": "60"
+				},
+				{
+					"name": "特大",
+					"size": "clamp(48px, 7vw, 80px)",
+					"slug": "70"
+				},
+				{
+					"name": "超大",
+					"size": "clamp(64px, 10vw, 120px)",
+					"slug": "80"
+				}
+			],
+			"units": ["%", "px", "em", "rem", "vh", "vw"]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fluid": true,
+			"fontSizes": [
+				{
+					"fluid": {
+						"max": "1rem",
+						"min": "0.875rem"
+					},
+					"name": "小",
+					"size": "0.875rem",
+					"slug": "small"
+				},
+				{
+					"fluid": {
+						"max": "1.125rem",
+						"min": "1rem"
+					},
+					"name": "常规",
+					"size": "1rem",
+					"slug": "medium"
+				},
+				{
+					"fluid": {
+						"max": "1.5rem",
+						"min": "1.25rem"
+					},
+					"name": "大",
+					"size": "1.25rem",
+					"slug": "large"
+				},
+				{
+					"fluid": {
+						"max": "2rem",
+						"min": "1.5rem"
+					},
+					"name": "特大",
+					"size": "1.5rem",
+					"slug": "x-large"
+				},
+				{
+					"fluid": {
+						"max": "3rem",
+						"min": "2rem"
+					},
+					"name": "超大",
+					"size": "2rem",
+					"slug": "xx-large"
+				}
+			],
+			"fontFamilies": [
+				{
+					"fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", \"STSong\", \"SimSun\", serif",
+					"name": "宋体",
+					"slug": "serif"
+				},
+				{
+					"fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", sans-serif",
+					"name": "黑体",
+					"slug": "sans"
+				},
+				{
+					"fontFamily": "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", cursive",
+					"name": "书法",
+					"slug": "calligraphy"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--base)",
+			"text": "var(--wp--preset--color--contrast)"
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--accent-green)"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--accent-red)"
+					}
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--serif)",
+					"fontWeight": "600"
+				}
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--serif)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"lineHeight": "1.8"
+		}
+	},
+	"templateParts": [
+		{
+			"area": "header",
+			"name": "header"
+		},
+		{
+			"area": "footer",
+			"name": "footer"
+		}
+	],
+	"customTemplates": [
+		{
+			"name": "poetry",
+			"postTypes": ["post"],
+			"title": "诗词专用模板"
+		},
+		{
+			"name": "calligraphy",
+			"postTypes": ["post"],
+			"title": "书法专用模板"
+		}
+	]
+}

@@ -1,0 +1,1174 @@
+/*
+Theme Name: 光卫诗书
+Theme URI: https://github.com/weinotes/guangwei-shishu
+Author: Davey
+Author URI: https://www.guangweiblog.com
+Description: 王光卫诗书词专用WordPress主题 - 中国传统风格，专为诗词书法展示设计。融合古典美学与现代Web技术，内置SEO/GEO优化，无需依赖第三方SEO插件。
+Version: 1.5.0
+Requires at least: 6.7
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: guangwei-shishu
+Domain Path: /languages
+Tags: blog, poetry, chinese-traditional, responsive, seo-ready, geo-ready, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks
+
+光卫诗书主题 - 传承中华文化，展现诗词之美。
+*/
+
+/* ========================================
+   中国传统色彩系统 - 水墨意境配色
+   ======================================== */
+
+:root {
+    /* 主色调 - 水墨渐变背景 */
+    --shishu-base: #f5f0e8;
+    --shishu-base-dark: #e8e2d6;
+    --shishu-base-gradient: linear-gradient(135deg, #f5f0e8 0%, #ebe4d6 50%, #e0d8c8 100%);
+    
+    /* 文字色 - 墨黑 */
+    --shishu-contrast: #2c2c2c;
+    --shishu-contrast-light: #4a4a4a;
+    
+    /* 强调色 - 朱砂红 */
+    --shishu-accent-red: #b83a52;
+    --shishu-accent-red-light: #c95a6e;
+    
+    /* 辅助色 - 靛蓝（中国传统色：群青/靛青） */
+    --shishu-accent-green: #3d5a80;
+    --shishu-accent-green-light: #5a7a9c;
+    
+    /* 点缀色 - 赭石 */
+    --shishu-accent-yellow: #b8735a;
+    --shishu-accent-yellow-light: #c9907a;
+    
+    /* 水墨灰 */
+    --shishu-gray: #7a7a7a;
+    --shishu-gray-light: #a8a8a8;
+    
+    /* 边框色 - 更柔和 */
+    --shishu-border: rgba(180, 170, 150, 0.4);
+    --shishu-border-light: rgba(200, 190, 170, 0.3);
+    
+    /* 毛玻璃背景色 */
+    --shishu-glass-bg: rgba(255, 255, 255, 0.72);
+    --shishu-glass-border: rgba(255, 255, 255, 0.5);
+    --shishu-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    
+    /* 字体 - 完全本地化，使用系统字体栈 */
+    --shishu-font-serif: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "STSong", "SimSun", serif;
+    --shishu-font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    --shishu-font-calligraphy: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", cursive;
+}
+
+/* ========================================
+   基础样式重置
+   ======================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--shishu-font-serif);
+    background-color: var(--shishu-base);
+    color: var(--shishu-contrast);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   中国传统排版样式
+   ======================================== */
+
+/* 竖排文字支持 */
+.writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+/* 诗词正文样式 */
+.poetry-content {
+    font-family: var(--shishu-font-serif);
+    font-size: 1.25rem;
+    line-height: 2.2;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.poetry-content p {
+    margin: 1.5em 0;
+}
+
+/* 词牌名样式 */
+.poetry-title {
+    font-family: var(--shishu-font-calligraphy);
+    font-size: 2.5rem;
+    color: var(--shishu-accent-red);
+    text-align: center;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.15em;
+}
+
+/* 作者信息 */
+.poetry-meta {
+    font-family: var(--shishu-font-sans);
+    font-size: 0.9rem;
+    color: var(--shishu-gray);
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+/* ========================================
+   链接样式
+   ======================================== */
+
+a {
+    color: var(--shishu-accent-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--shishu-accent-red);
+}
+
+/* ========================================
+   按钮样式
+   ======================================== */
+
+.wp-block-button__link {
+    background-color: var(--shishu-accent-red);
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.75em 1.5em;
+    font-family: var(--shishu-font-sans);
+    transition: all 0.3s ease;
+}
+
+.wp-block-button__link:hover {
+    background-color: var(--shishu-accent-red-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(201, 55, 86, 0.3);
+}
+
+/* ========================================
+   卡片样式 - 毛玻璃效果
+   ======================================== */
+
+.shishu-card {
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--shishu-glass-border);
+    border-radius: 12px;
+    padding: 2em;
+    box-shadow: var(--shishu-glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shishu-card:hover {
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   分隔线样式 - 中国传统纹样
+   ======================================== */
+
+.shishu-divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--shishu-border) 20%,
+        var(--shishu-accent-yellow) 50%,
+        var(--shishu-border) 80%,
+        transparent 100%
+    );
+    margin: 3em 0;
+}
+
+/* 云纹分隔 */
+.shishu-divider-cloud {
+    text-align: center;
+    border: none;
+    margin: 2em 0;
+}
+
+.shishu-divider-cloud::before {
+    content: "☁";
+    color: var(--shishu-gray-light);
+    font-size: 1.5rem;
+    letter-spacing: 1em;
+}
+
+/* ========================================
+   标签样式 - 毛玻璃效果
+   ======================================== */
+
+.shishu-tag {
+    display: inline-block;
+    padding: 0.35em 1em;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(180, 170, 150, 0.3);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--shishu-contrast-light);
+    margin: 0.25em;
+    transition: all 0.3s ease;
+}
+
+.shishu-tag:hover {
+    background: var(--shishu-accent-green);
+    color: #fff;
+    border-color: var(--shishu-accent-green);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   Hero 区域样式 - 毛玻璃效果
+   ======================================== */
+
+.shishu-hero {
+    position: relative;
+    background: var(--shishu-base-gradient);
+}
+
+.shishu-hero::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid var(--shishu-glass-border);
+    border-radius: 8px;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+.shishu-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.shishu-hero h1 {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+    letter-spacing: 0.15em;
+}
+
+/* ========================================
+   文章页样式 - 毛玻璃效果
+   ======================================== */
+
+.shishu-article-header {
+    position: relative;
+    text-align: center;
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px 12px 0 0;
+    border: 1px solid var(--shishu-glass-border);
+    border-bottom: 2px solid var(--shishu-accent-red);
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shishu-article-header::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 1px solid rgba(180, 160, 140, 0.2);
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.shishu-article-content {
+    position: relative;
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 0 0 12px 12px;
+    border: 1px solid var(--shishu-glass-border);
+    border-top: none;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shishu-poem-content {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.shishu-poem-content p {
+    margin-bottom: 1.5em;
+    text-indent: 2em;
+}
+
+.shishu-poem-content p:first-of-type {
+    text-indent: 0;
+}
+
+.shishu-poem-content h2,
+.shishu-poem-content h3 {
+    font-family: var(--shishu-font-calligraphy);
+    color: var(--shishu-accent-red);
+    text-align: center;
+    margin: 2em 0 1em;
+}
+
+.shishu-article-footer {
+    font-family: var(--shishu-font-sans);
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid var(--shishu-glass-border);
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================================
+   特色图片样式 - 视觉分割
+   ======================================== */
+
+.shishu-featured-image {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shishu-featured-image img,
+.shishu-featured-image .wp-post-featured-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--shishu-glass-border);
+    box-shadow: var(--shishu-glass-shadow);
+    transition: all 0.4s ease;
+}
+
+.shishu-featured-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 无特色图片时的占位 */
+.shishu-featured-image:empty::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 300px;
+    background: var(--shishu-base-gradient);
+    border-radius: 12px;
+    border: 1px dashed var(--shishu-border);
+}
+
+/* ========================================
+   页眉样式 - 居中布局
+   ======================================== */
+
+.shishu-header {
+    position: relative;
+}
+
+/* 搜索图标 - 右上角定位 */
+.shishu-search-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.shishu-search-icon .wp-block-search {
+    position: relative;
+}
+
+.shishu-search-icon .wp-block-search__input {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--shishu-border);
+    border-radius: 50%;
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    opacity: 0.7;
+}
+
+.shishu-search-icon .wp-block-search__input:focus,
+.shishu-search-icon .wp-block-search__input:hover {
+    width: 200px;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    opacity: 1;
+    cursor: text;
+}
+
+/* 搜索占位符图标 */
+.shishu-search-icon .wp-block-search::before {
+    content: "🔍";
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    font-size: 1rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.shishu-search-icon .wp-block-search:focus-within::before,
+.shishu-search-icon .wp-block-search:hover::before {
+    display: none;
+}
+
+/* Logo 样式 - 无圆形限定，无背景框 */
+.shishu-site-logo {
+    text-align: center;
+}
+
+.shishu-site-logo img {
+    max-width: 160px;
+    height: auto;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+/* 移除WordPress默认的logo样式 */
+.wp-block-site-logo img,
+.wp-block-site-logo a {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* 页眉样式 - 简洁无边框 */
+.shishu-header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--shishu-border);
+}
+
+/* ========================================
+   导航样式 - 大字体 + 分隔符 + 搜索内联
+   ======================================== */
+
+.shishu-nav {
+    background: transparent;
+}
+
+.shishu-nav .wp-block-navigation__container {
+    gap: 0;
+    background: transparent !important;
+}
+
+/* 导航项 - 移除背景 */
+.shishu-nav .wp-block-navigation-item {
+    background: transparent !important;
+}
+
+.shishu-nav .wp-block-navigation-item__content {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* 大字体导航 - 增强优先级 */
+.shishu-nav-large .wp-block-navigation-item a,
+.shishu-nav-large a,
+nav.shishu-nav-large .wp-block-navigation-item__content,
+.wp-block-navigation.shishu-nav-large .wp-block-navigation-item__content {
+    font-family: var(--shishu-font-serif) !important;
+    font-size: 1.5rem !important;
+    padding: 0.75em 1em !important;
+    color: var(--shishu-contrast) !important;
+    position: relative;
+    transition: all 0.3s ease;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.shishu-nav-large .wp-block-navigation-item a:hover,
+.shishu-nav-large a:hover,
+nav.shishu-nav-large .wp-block-navigation-item__content:hover,
+.wp-block-navigation.shishu-nav-large .wp-block-navigation-item__content:hover {
+    color: var(--shishu-accent-red) !important;
+    background: transparent !important;
+}
+
+/* 导航项之间的分隔符 */
+.shishu-nav-large .wp-block-navigation-item:not(:last-child)::after {
+    content: "·";
+    color: var(--shishu-gray-light);
+    font-size: 1.5rem;
+    margin: 0 0.25em;
+}
+
+/* 导航分隔符样式 */
+.shishu-nav-separator {
+    color: var(--shishu-border);
+    font-weight: 300;
+    user-select: none;
+}
+
+/* 内联搜索图标 */
+.shishu-search-inline {
+    display: flex;
+    align-items: center;
+}
+
+.shishu-search-inline .wp-block-search {
+    position: relative;
+}
+
+.shishu-search-inline .wp-block-search__input {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--shishu-border);
+    border-radius: 50%;
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    opacity: 0.7;
+}
+
+.shishu-search-inline .wp-block-search__input:focus,
+.shishu-search-inline .wp-block-search__input:hover {
+    width: 180px;
+    padding: 0.5em 1em;
+    border-radius: 18px;
+    opacity: 1;
+    cursor: text;
+}
+
+/* 搜索图标链接样式 */
+.shishu-search-icon-link {
+    margin: 0;
+}
+
+.shishu-search-icon-link a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--shishu-border);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.shishu-search-icon-link a:hover {
+    background: var(--shishu-accent-green);
+    border-color: var(--shishu-accent-green);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* 旧导航样式（兼容） */
+.shishu-nav a {
+    font-family: var(--shishu-font-sans);
+    font-size: 1rem;
+    padding: 0.75em 1.25em;
+    color: var(--shishu-contrast);
+    position: relative;
+    transition: all 0.3s ease;
+    background: transparent !important;
+    border: none !important;
+}
+
+.shishu-nav a:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--shishu-accent-red);
+}
+
+.shishu-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--shishu-accent-red);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.shishu-nav a:hover::after {
+    width: 60%;
+}
+
+/* ========================================
+   页脚样式
+   ======================================== */
+
+.shishu-footer {
+    background: var(--shishu-contrast);
+    color: var(--shishu-gray-light);
+    padding: 3em 0;
+    margin-top: 4em;
+}
+
+.shishu-footer a {
+    color: var(--shishu-accent-yellow);
+}
+
+/* ========================================
+   文章列表样式 - 毛玻璃卡片
+   ======================================== */
+
+.shishu-post-list {
+    display: grid;
+    gap: 2em;
+}
+
+.shishu-post-item {
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 3px solid var(--shishu-accent-green);
+    border-radius: 0 12px 12px 0;
+    padding: 1.5em 2em;
+    box-shadow: var(--shishu-glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shishu-post-item:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-left-color: var(--shishu-accent-red);
+    border-left-width: 4px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    transform: translateX(4px);
+}
+
+.shishu-post-title {
+    font-family: var(--shishu-font-serif);
+    font-size: 1.5rem;
+    color: var(--shishu-contrast);
+    margin-bottom: 0.5em;
+}
+
+.shishu-post-excerpt {
+    color: var(--shishu-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ========================================
+   印章样式
+   ======================================== */
+
+.shishu-seal {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: var(--shishu-accent-red);
+    color: #fff;
+    font-family: var(--shishu-font-calligraphy);
+    font-size: 0.9rem;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(201, 55, 86, 0.3);
+}
+
+/* ========================================
+   响应式适配
+   ======================================== */
+
+@media (max-width: 768px) {
+    .poetry-title {
+        font-size: 1.75rem;
+    }
+    
+    .poetry-content {
+        font-size: 1.1rem;
+        line-height: 2;
+    }
+    
+    .shishu-card {
+        padding: 1.5em;
+    }
+    
+    .shishu-post-item {
+        padding: 1em 1.5em;
+    }
+}
+
+/* ========================================
+   打印样式
+   ======================================== */
+
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+    
+    .shishu-nav,
+    .shishu-footer {
+        display: none;
+    }
+    
+    .poetry-content {
+        font-size: 14pt;
+        line-height: 2;
+    }
+}
+
+/* ========================================
+   无障碍支持
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 焦点样式 */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--shishu-accent-red);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   区块编辑器样式支持
+   ======================================== */
+
+/* 引用块 */
+.wp-block-quote {
+    border-left: 4px solid var(--shishu-accent-green);
+    padding-left: 1.5em;
+    font-style: italic;
+    color: var(--shishu-contrast-light);
+}
+
+.wp-block-quote cite {
+    color: var(--shishu-gray);
+    font-size: 0.9em;
+}
+
+/* 代码块 */
+.wp-block-code {
+    background: var(--shishu-base-dark);
+    border: 1px solid var(--shishu-border);
+    border-radius: 4px;
+    padding: 1em;
+    font-family: "SF Mono", Monaco, monospace;
+    font-size: 0.9em;
+}
+
+/* 表格 */
+.wp-block-table table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.wp-block-table th,
+.wp-block-table td {
+    border: 1px solid var(--shishu-border);
+    padding: 0.75em;
+}
+
+.wp-block-table th {
+    background: var(--shishu-base-dark);
+    font-weight: 600;
+}
+
+/* 图片 */
+.wp-block-image img {
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.wp-block-image figcaption {
+    color: var(--shishu-gray);
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+/* ========================================
+   评论区域样式
+   ======================================== */
+
+/* 评论容器 */
+.wp-block-comments {
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2em;
+    box-shadow: var(--shishu-glass-shadow);
+}
+
+/* 评论标题 */
+.wp-block-comments-title {
+    font-family: var(--shishu-font-serif);
+    font-size: 1.5rem;
+    color: var(--shishu-contrast);
+    margin-bottom: 1.5em;
+    padding-bottom: 0.75em;
+    border-bottom: 2px solid var(--shishu-accent-green);
+}
+
+/* 评论列表 */
+.wp-block-comment-template {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wp-block-comment-template li {
+    margin-bottom: 1.5em;
+    padding: 1.5em;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border-left: 3px solid var(--shishu-accent-green);
+}
+
+/* 评论作者 */
+.wp-block-comment-author-name {
+    font-family: var(--shishu-font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--shishu-contrast);
+}
+
+/* 评论日期 */
+.wp-block-comment-date {
+    font-size: 0.85rem;
+    color: var(--shishu-gray);
+    margin-top: 0.25em;
+}
+
+/* 评论内容 */
+.wp-block-comment-content {
+    margin-top: 1em;
+    line-height: 1.8;
+    color: var(--shishu-contrast-light);
+}
+
+/* 评论表单 */
+.wp-block-post-comments-form {
+    margin-top: 2em;
+    padding-top: 2em;
+    border-top: 1px solid var(--shishu-border);
+}
+
+.wp-block-post-comments-form .comment-reply-title {
+    font-family: var(--shishu-font-serif);
+    font-size: 1.25rem;
+    color: var(--shishu-contrast);
+    margin-bottom: 1em;
+}
+
+/* 评论输入框 */
+.wp-block-post-comments-form textarea,
+.wp-block-post-comments-form input[type="text"],
+.wp-block-post-comments-form input[type="email"],
+.wp-block-post-comments-form input[type="url"] {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--shishu-border);
+    border-radius: 8px;
+    padding: 0.75em 1em;
+    font-family: var(--shishu-font-sans);
+    font-size: 1rem;
+    color: var(--shishu-contrast);
+    transition: all 0.3s ease;
+}
+
+.wp-block-post-comments-form textarea:focus,
+.wp-block-post-comments-form input:focus {
+    border-color: var(--shishu-accent-green);
+    box-shadow: 0 0 0 3px rgba(90, 128, 94, 0.1);
+    outline: none;
+}
+
+/* 提交按钮 */
+.wp-block-post-comments-form .form-submit input[type="submit"] {
+    background: var(--shishu-accent-green);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75em 2em;
+    font-family: var(--shishu-font-serif);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wp-block-post-comments-form .form-submit input[type="submit"]:hover {
+    background: var(--shishu-accent-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 58, 82, 0.3);
+}
+
+/* 评论分页 */
+.wp-block-comments-pagination {
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+.wp-block-comments-pagination a,
+.wp-block-comments-pagination .current {
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin: 0 0.25em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.wp-block-comments-pagination a {
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--shishu-contrast);
+}
+
+.wp-block-comments-pagination a:hover {
+    background: var(--shishu-accent-green);
+    color: #fff;
+}
+
+.wp-block-comments-pagination .current {
+    background: var(--shishu-accent-green);
+    color: #fff;
+}
+
+/* ========================================
+   移动端响应式菜单
+   ======================================== */
+
+/* 移动端菜单按钮样式 - 默认隐藏 */
+.wp-block-navigation__responsive-container-open {
+    display: none !important;
+}
+
+/* 移动端显示汉堡菜单按钮 */
+@media (max-width: 782px) {
+    .wp-block-navigation__responsive-container-open {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: var(--shishu-glass-bg) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--shishu-border) !important;
+        border-radius: 8px !important;
+        box-shadow: var(--shishu-glass-shadow);
+        color: var(--shishu-contrast) !important;
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .wp-block-navigation__responsive-container-open:hover {
+        background: var(--shishu-accent-green) !important;
+        color: #fff !important;
+        border-color: var(--shishu-accent-green) !important;
+    }
+}
+
+/* 移动端菜单容器 */
+.wp-block-navigation__responsive-container {
+    background: var(--shishu-base) !important;
+}
+
+.wp-block-navigation__responsive-container .wp-block-navigation__responsive-close {
+    background: var(--shishu-base) !important;
+}
+
+.wp-block-navigation__responsive-container .wp-block-navigation__responsive-dialog {
+    background: var(--shishu-base) !important;
+}
+
+/* 移动端菜单内容 */
+.wp-block-navigation__responsive-container .wp-block-navigation__container {
+    padding: 2em;
+    gap: 0.5em !important;
+}
+
+/* 移动端菜单项 */
+.wp-block-navigation__responsive-container .wp-block-navigation-item {
+    width: 100%;
+    border-bottom: 1px solid var(--shishu-border);
+}
+
+.wp-block-navigation__responsive-container .wp-block-navigation-item:last-child {
+    border-bottom: none;
+}
+
+.wp-block-navigation__responsive-container .wp-block-navigation-item a {
+    font-family: var(--shishu-font-serif) !important;
+    font-size: 1.25rem !important;
+    padding: 1em 0.5em !important;
+    color: var(--shishu-contrast) !important;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.wp-block-navigation__responsive-container .wp-block-navigation-item a:hover {
+    color: var(--shishu-accent-red) !important;
+    padding-left: 1em !important;
+}
+
+/* 移动端关闭按钮 */
+.wp-block-navigation__responsive-container-close {
+    width: 48px;
+    height: 48px;
+    background: var(--shishu-glass-bg) !important;
+    border: 1px solid var(--shishu-border) !important;
+    border-radius: 8px !important;
+    color: var(--shishu-contrast) !important;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wp-block-navigation__responsive-container-close:hover {
+    background: var(--shishu-accent-red) !important;
+    color: #fff !important;
+    border-color: var(--shishu-accent-red) !important;
+}
+
+/* 移动端菜单遮罩 */
+.wp-block-navigation__responsive-container.is-menu-open {
+    background: rgba(245, 240, 232, 0.98) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* 移动端隐藏桌面导航，显示汉堡菜单 */
+@media (max-width: 782px) {
+    .shishu-nav-separator,
+    .shishu-search-icon-link {
+        display: none !important;
+    }
+    
+    /* 导航菜单在移动端收缩 */
+    .wp-block-navigation {
+        width: 100%;
+    }
+    
+    /* 页眉内边距调整 */
+    .shishu-header {
+        margin: 0 0.5em 1em 0.5em !important;
+        max-width: calc(100% - 1em) !important;
+    }
+    
+    /* Logo和标题在移动端缩小 */
+    .shishu-site-logo img {
+        max-width: 120px !important;
+    }
+}
+
+/* ========================================
+   上一篇/下一篇导航
+   ======================================== */
+
+.shishu-post-navigation {
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+}
+
+.shishu-post-navigation .wp-block-post-navigation-link {
+    font-family: var(--shishu-font-serif);
+}
+
+.shishu-post-navigation .wp-block-post-navigation-link a {
+    color: var(--shishu-contrast);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.shishu-post-navigation .wp-block-post-navigation-link a:hover {
+    color: var(--shishu-accent-red);
+}
+
+/* ========================================
+   相关文章
+   ======================================== */
+
+.shishu-related-posts {
+    background: var(--shishu-glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2em;
+    box-shadow: var(--shishu-glass-shadow);
+}
+
+.shishu-related-card {
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.shishu-related-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+.shishu-related-card .wp-block-post-title a {
+    color: var(--shishu-contrast);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.shishu-related-card .wp-block-post-title a:hover {
+    color: var(--shishu-accent-red);
+}
+
+/* 移动端相关文章单列 */
+@media (max-width: 782px) {
+    .shishu-related-query .wp-block-post-template {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .shishu-related-posts {
+        padding: 1.5em;
+    }
+}
